@@ -11,11 +11,32 @@ namespace SnakeAndLadder
         static void Main(string[] args)
         {
             int startPosition = 0;
+            const int noPlay= 1, ladder = 2, snake = 3;
             Console.WriteLine("welcome to snake and ladder program");
+            
             Random random= new Random();
             int dieValue = random.Next(1, 7);
             Console.WriteLine("The player roll a die:" +dieValue);
-            //Console.WriteLine("single player start position : " +startPosition);
+            
+            int option=random.Next(1, 4);
+            Console.WriteLine("option:" +option);
+            switch (option) 
+            {
+                case noPlay:
+                    Console.WriteLine("The player stays in the same position:" +startPosition);
+                    break;
+                case ladder:
+                    startPosition = startPosition + dieValue;
+                    Console.WriteLine("player got ladder and move ahead by:" +startPosition);
+                    break;
+                case snake:
+                    startPosition = startPosition - dieValue;
+                    Console.WriteLine("player got snake and move behind by:" +startPosition);
+                    break;
+                default:
+                    Console.WriteLine("invalid input");
+                    break;
+            }
             Console.ReadLine();
         }
     }
