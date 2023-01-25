@@ -12,7 +12,10 @@ namespace SnakeAndLadder
         {
             int startPosition = 0;
             Console.WriteLine("welcome to snake and ladder program");
-            Console.WriteLine("single player start position : " +startPosition);
+            Random random= new Random();
+            int dieValue = random.Next(1, 7);
+            Console.WriteLine("The player roll a die:" +dieValue);
+            //Console.WriteLine("single player start position : " +startPosition);
             Console.ReadLine();
         }
     }
