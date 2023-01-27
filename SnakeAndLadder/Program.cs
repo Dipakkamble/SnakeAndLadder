@@ -30,6 +30,10 @@ namespace SnakeAndLadder
                         break;
                     case ladder:                       
                         startPosition = startPosition + dieValue;
+                        if (startPosition > 100) 
+                        {
+                            startPosition = startPosition - dieValue;
+                        }
                         Console.WriteLine("player got ladder and move ahead :" + startPosition);
                         break;
                     case snake:
