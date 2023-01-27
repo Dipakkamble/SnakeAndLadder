@@ -10,7 +10,7 @@ namespace SnakeAndLadder
     {
         static void Main(string[] args)
         {
-            int startPosition = 0;
+            int startPosition = 0,dieCount=0;
             const int noPlay= 1, ladder = 2, snake = 3;
             Console.WriteLine("welcome to snake and ladder program");
 
@@ -35,17 +35,21 @@ namespace SnakeAndLadder
                             startPosition = startPosition - dieValue;
                         }
                         Console.WriteLine("player got ladder and move ahead :" + startPosition);
+                        dieCount++;
                         break;
                     case snake:
                         startPosition = startPosition - dieValue;
+                        if (startPosition < 0)
+                        {
+                            startPosition = 0;
+                        }
                         Console.WriteLine("player got snake and move behind :" + startPosition);
+                        dieCount++;
                         break;                      
                 }
-                if (startPosition < 0 )
-                {
-                    startPosition = 0;
-                }
+                Console.WriteLine("player is at:" + startPosition);
             }
+            Console.WriteLine("Dice count:" + dieCount);
             Console.ReadLine();
         }
     }
